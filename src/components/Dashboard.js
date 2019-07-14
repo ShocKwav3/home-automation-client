@@ -8,10 +8,17 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidMount = () => {
+    this.props.getSensorData()
+  }
+
   render() {
+  console.log("HOLA ", this.props.allState)
     return (
       <h1>Hello, world!</h1>
     );
   }
 }
+
+
 export default Dashboard;

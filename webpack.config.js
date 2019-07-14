@@ -15,7 +15,7 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    overlay: true
+    overlay: true,
   },
 
   module: {
@@ -28,6 +28,13 @@ module.exports = {
         },
       },
     ],
+  },
+
+  resolve: {
+    alias: {
+      projectRoot: path.resolve(__dirname),
+      src: path.resolve(__dirname, 'src'),
+    },
   },
 
   plugins: [
