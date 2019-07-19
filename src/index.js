@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import getStore from './store'
-import DashboardContainer from './containers/DashboardContainer'
+import MainContainer from './containers/MainContainer'
 
 
 const store = getStore()
 
 ReactDOM.render(
   <Provider store={store}>
-    <DashboardContainer />
+    <MainContainer />
   </Provider>,
   document.getElementById('main')
 )
