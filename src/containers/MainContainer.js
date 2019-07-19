@@ -1,21 +1,12 @@
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import Main from '../components/Main'
+import Main from '../components/MainView'
 
 
-const mapStateToProps = (state) => {
-  return {
-    allState: state,
-  }
+const MainContainer = () => {
+  const stateSelector = useSelector(state => state)
+
+  return <Main allState={stateSelector} />
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
-
-const MainContainer = connect(mapStateToProps, mapDispatchToProps)(Main)
-
 
 export default MainContainer

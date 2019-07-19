@@ -1,22 +1,20 @@
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import sensorDataServices from '../services/sensorDataServices'
-import Dashboard from '../components/Dashboard'
+import Dashboard from '../components/DashboardView'
 
 
-const mapStateToProps = (state) => {
-  return {
-    allState: state,
-  }
+getSensorData = () => {
+  const dispatch = useDispatch()
+
+  dispatch(sensorDataServices.getSensorData())
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getSensorData: () => dispatch(sensorDataServices.getSensorData()),
-  }
-}
+const DashboardContainer = () => {
+  const stateSelector = useSelector(state => state)
 
-const DashboardContainer = connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+  return <Dashboard allState={stateSelector} />
+}
 
 
 export default DashboardContainer
