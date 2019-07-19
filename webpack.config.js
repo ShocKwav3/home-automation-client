@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    overlay: true
+    overlay: true,
   },
 
   module: {
@@ -30,6 +31,13 @@ module.exports = {
     ],
   },
 
+  resolve: {
+    alias: {
+      projectRoot: path.resolve(__dirname),
+      src: path.resolve(__dirname, 'src'),
+    },
+  },
+
   plugins: [
     new HtmlWebPackPlugin({
       title: 'Automation Client',
@@ -42,6 +50,9 @@ module.exports = {
       analyzerMode: 'disabled',
       generateStatsFile: true,
       statsOptions: { source: false }
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
     }),
   ],
 }

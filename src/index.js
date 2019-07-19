@@ -1,9 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import DashboardContainer from './containers/DashboardContainer'
+import { Provider } from 'react-redux'
 
+import getStore from './store'
+import MainContainer from './containers/MainContainer'
+
+
+const store = getStore()
 
 ReactDOM.render(
-  <DashboardContainer />,
+  <Provider store={store}>
+    <MainContainer />
+  </Provider>,
   document.getElementById('main')
 )
