@@ -11,12 +11,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist') + '/bundled',
     filename: 'bundle.js',
+    publicPath: '/',
   },
 
   devtool: 'source-map',
 
   devServer: {
     overlay: true,
+    historyApiFallback: true,
   },
 
   module: {
