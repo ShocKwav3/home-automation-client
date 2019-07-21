@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 import sensorDataServices from '../services/sensorDataServices'
-import Dashboard from '../components/DashboardView'
+import DashboardView from '../components/DashboardView'
 
 
-getSensorData = () => {
+const getSensorData = () => {
   const dispatch = useDispatch()
 
   dispatch(sensorDataServices.getSensorData())
@@ -13,7 +13,7 @@ getSensorData = () => {
 const DashboardContainer = () => {
   const stateSelector = useSelector(state => state)
 
-  return <Dashboard allState={stateSelector} />
+  return <DashboardView allState={stateSelector} />
 }
 
 
