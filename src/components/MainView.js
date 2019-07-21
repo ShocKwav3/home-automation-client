@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -12,13 +11,12 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import LocalActivity from '@material-ui/icons/LocalActivity';
 import ViewList from '@material-ui/icons/ViewList';
 import DashboardIcon from '@material-ui/icons/DashboardRounded';
+import List from '@material-ui/core/List'
 
+import ListItem from './common/ListItem'
 import styles from '../styles'
 
 
@@ -26,21 +24,41 @@ const drawerOptions = [
   {
     title: 'Dashboard',
     icon: DashboardIcon,
+    route: 'dashboard',
   },
   {
     title: 'Sensor data',
     icon: ViewList,
+    route: 'sensorData',
   },
   {
     title: 'Actuator activities',
     icon: LocalActivity,
+    route: 'actuatorActivities',
   },
 ]
 
-export default function MiniDrawer({allState, children}) {
+export default function MainView({allState, children, history}) {
   const classes = styles.mainStyles()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const DrawerItems = () => {
+    return <List>
+      {
+        drawerOptions.map(drawerItem => {
+          const route = drawerItem.route
+          const onDrawerItemClick = useCallback(() => {
+            history.push(route)
+          }, [route])
+
+          return <ListItem key={drawerItem.route}
+                           item={drawerItem}
+                           onItemClick={onDrawerItemClick} />
+        })
+      }
+    </List>
+  }
 
   function toggleDrawer() {
     setOpen(!open)
@@ -88,16 +106,7 @@ export default function MiniDrawer({allState, children}) {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {
-            drawerOptions.map(drawerItem => (
-              <ListItem button key={drawerItem.title}>
-                <ListItemIcon>{<drawerItem.icon/>}</ListItemIcon>
-                <ListItemText primary={drawerItem.title} />
-              </ListItem>
-            ))
-          }
-        </List>
+        <DrawerItems />
       </Drawer>
 
       <main className={classes.content}>
