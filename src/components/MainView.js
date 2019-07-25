@@ -17,7 +17,7 @@ import DashboardIcon from '@material-ui/icons/DashboardRounded';
 import List from '@material-ui/core/List'
 
 import ListItem from './common/ListItem'
-import styles from '../styles'
+import { mainViewStyles } from '../styles/mainViewStyles'
 
 
 const drawerOptions = [
@@ -56,7 +56,7 @@ const DrawerItems = ({history}) => { //since we want it to render once no optimi
 }
 
 export default function MainView({allState, children, history}) {
-  const classes = styles.mainStyles()
+  const classes = mainViewStyles()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
