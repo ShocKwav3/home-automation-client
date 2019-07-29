@@ -5,8 +5,16 @@ export const sensorDataViewStyles = makeStyles(theme => ({
   container: {
     flexGrow: 1,
   },
-  cardContainer: {
-    //minHeight: 100,
-    //minWidth: 250,
+  iconBasic: {
+    margin: theme.spacing(2),
+  },
+  green: {
+    color: 'green',
+  },
+  red: {
+    color: 'red',
+  },
+  grey: {
+    color: 'grey',
   },
 }));
