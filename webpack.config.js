@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 const webpack = require('webpack');
 
 
@@ -10,7 +11,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist') + '/bundled',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     publicPath: '/',
   },
 
@@ -40,6 +42,29 @@ module.exports = {
     },
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /node_modules/,
+          priority: 20,
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'async',
+          priority: 10,
+          reuseExistingChunk: true,
+          enforce: true
+        }
+      },
+    },
+  },
+
   plugins: [
     new HtmlWebPackPlugin({
       title: 'Automation Client',
@@ -48,6 +73,7 @@ module.exports = {
       filename: "./index.html",
     }),
     new DashboardPlugin(),
+    new AsyncChunkNames(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled',
       generateStatsFile: true,
