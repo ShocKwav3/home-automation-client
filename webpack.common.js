@@ -1,9 +1,9 @@
 const path = require("path")
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const DashboardPlugin = require("webpack-dashboard/plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
-const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const AsyncChunkNames = require('webpack-async-chunk-names-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const DashboardPlugin = require("webpack-dashboard/plugin")
+const webpack = require('webpack')
 
 
 module.exports = {
@@ -16,13 +16,6 @@ module.exports = {
     publicPath: '/',
   },
 
-  devtool: 'source-map',
-
-  devServer: {
-    overlay: true,
-    historyApiFallback: true,
-  },
-
   module: {
     rules: [
       {
@@ -32,6 +25,13 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      /*{
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { minimize: true } },
+        ],
+      },*/
     ],
   },
 
@@ -43,6 +43,7 @@ module.exports = {
   },
 
   optimization: {
+    //concatenateModules: true,
     splitChunks: {
       cacheGroups: {
         default: false,
@@ -72,12 +73,12 @@ module.exports = {
       template: "./src/index.ejs",
       filename: "./index.html",
     }),
-    new DashboardPlugin(),
     new AsyncChunkNames(),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsOptions: { source: false }
+    new DashboardPlugin(),
+    new LodashModuleReplacementPlugin({
+      'collections': true,
+      'paths': true,
+      'shorthands': true,
     }),
     new webpack.ProvidePlugin({
       React: 'react',
