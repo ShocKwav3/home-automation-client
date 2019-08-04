@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 import sensorDataServices from '../services/sensorDataServices'
-import SensorDataView from '../components/SensorDataView'
+import SensorDataView from '../components/sensorDataView'
 
 
 const getSensorData = () => {

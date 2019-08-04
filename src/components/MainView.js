@@ -17,7 +17,7 @@ import DashboardIcon from '@material-ui/icons/DashboardRounded';
 import List from '@material-ui/core/List'
 
 import ListItem from './common/ListItem'
-import styles from '../styles'
+import { mainViewStyles } from '../styles/mainViewStyles'
 
 
 const drawerOptions = [
@@ -38,27 +38,27 @@ const drawerOptions = [
   },
 ]
 
+const DrawerItems = ({history}) => { //since we want it to render once no optimizations are needed with lifecycle events
+  return <List>
+    {
+      drawerOptions.map(drawerItem => {
+        const route = drawerItem.route
+        const onDrawerItemClick = useCallback(() => {
+          history.push(route)
+        }, [route])
+
+        return <ListItem key={drawerItem.route}
+                         item={drawerItem}
+                         onItemClick={onDrawerItemClick} />
+      })
+    }
+  </List>
+}
+
 export default function MainView({allState, children, history}) {
-  const classes = styles.mainStyles()
+  const classes = mainViewStyles()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const DrawerItems = () => {
-    return <List>
-      {
-        drawerOptions.map(drawerItem => {
-          const route = drawerItem.route
-          const onDrawerItemClick = useCallback(() => {
-            history.push(route)
-          }, [route])
-
-          return <ListItem key={drawerItem.route}
-                           item={drawerItem}
-                           onItemClick={onDrawerItemClick} />
-        })
-      }
-    </List>
-  }
 
   function toggleDrawer() {
     setOpen(!open)
@@ -106,7 +106,7 @@ export default function MainView({allState, children, history}) {
           </IconButton>
         </div>
         <Divider />
-        <DrawerItems />
+        <DrawerItems history={history}/>
       </Drawer>
 
       <main className={classes.content}>
