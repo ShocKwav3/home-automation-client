@@ -2,7 +2,7 @@ import sensorDataActions from '../actions/sensorDataActions'
 
 
 const getSensorData = () => (dispatch) => {
-  dispatch(sensorDataActions.getSensorData());
+  dispatch(sensorDataActions.getAllSensorDataPending());
 }
 
 const sensorDataServices = {
