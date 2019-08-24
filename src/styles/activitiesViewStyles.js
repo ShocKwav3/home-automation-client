@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 
-export const sensorDataViewStyles = makeStyles(theme => ({
+export const activitiesViewStyles = makeStyles(theme => ({
   container: {
     flexGrow: 1,
   },

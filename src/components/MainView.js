@@ -2,7 +2,8 @@ import React, { useCallback } from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
+//import AppBar from '@material-ui/core/AppBar';
+import { AppBar } from '@material-ui/core'
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -11,30 +12,25 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LocalActivity from '@material-ui/icons/LocalActivity';
 import ViewList from '@material-ui/icons/ViewList';
 import DashboardIcon from '@material-ui/icons/DashboardRounded';
 import List from '@material-ui/core/List'
 
 import ListItem from './common/ListItem'
 import { mainViewStyles } from '../styles/mainViewStyles'
+import { routes } from '../constants/settings'
 
 
 const drawerOptions = [
   {
     title: 'Dashboard',
     icon: DashboardIcon,
-    route: 'dashboard',
+    route: routes.dashboard,
   },
   {
-    title: 'Sensor data',
+    title: 'Activities',
     icon: ViewList,
-    route: 'sensorData',
-  },
-  {
-    title: 'Actuator activities',
-    icon: LocalActivity,
-    route: 'actuatorActivities',
+    route: routes.activities,
   },
 ]
 
