@@ -5,6 +5,7 @@
   ],
   "plugins": [
     "lodash",
+    "recharts",
     //"@babel/plugin-proposal-class-properties",
     ["module-resolver", {
       "root": ["./"],

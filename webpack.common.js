@@ -31,7 +31,15 @@ module.exports = {
           'style-loader',
           { loader: 'css-loader', options: { minimize: true } },
         ],
-      },*/
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      },
+      {
+        test: /\.(ttf|png|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader: "file-loader"
+      }*/
     ],
   },
 
@@ -60,8 +68,8 @@ module.exports = {
           chunks: 'async',
           priority: 10,
           reuseExistingChunk: true,
-          enforce: true
-        }
+          enforce: true,
+        },
       },
     },
   },

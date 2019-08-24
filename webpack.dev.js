@@ -17,7 +17,9 @@ module.exports = merge(common, {
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled',
       generateStatsFile: true,
-      statsOptions: { source: false }
+      statsOptions: {
+        source: false,
+      },
     }),
   ],
 })

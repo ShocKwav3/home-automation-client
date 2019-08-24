@@ -27,4 +27,7 @@ export const cardItemStyles = makeStyles(theme => ({
   icon: {
     margin: theme.spacing(2),
   },
+  cardRoot: {
+    paddingBottom: 0
+  }
 }))
