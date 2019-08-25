@@ -62,3 +62,6 @@ typings/
 
 # transpiled codes
 dist
+
+# flow-type directory
+flow-typed
