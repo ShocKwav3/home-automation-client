@@ -1,14 +1,17 @@
-import devices from './devices'
-import sensorData from './sensorData'
-import actuatorActivities from './actuatorActivities'
 import { combineReducers } from 'redux'
 
+import type {
+  State,
+  Action,
+  Dispatch,
+} from '../types'
 
-const rootReducer = combineReducers({
-  devices,
+//import devices from './devices'
+import sensorData from './sensorData'
+import actuatorActivities from './actuatorActivities'
+
+
+export default combineReducers<Object, Action>({
   sensorData,
   actuatorActivities,
 })
-
-
-export default rootReducer

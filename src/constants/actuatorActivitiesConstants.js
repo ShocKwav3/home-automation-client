@@ -1,4 +1,4 @@
-export const actuatorActivitiesConstants = {
+export const actuatorActivitiesActionTypes: Object = {
   GET_ACTUATOR_ACTIVITIES_ALL: 'actuatorActivities/all/GET',
   GET_ACTUATOR_ACTIVITIES_ALL_SUCCESS: 'actuatorActivities/all/GET_SUCCESS',
   GET_ACTUATOR_ACTIVITIES_ALL_NO_NEW_UPDATE: 'actuatorActivities/all/NO_NEW_UPDATE',

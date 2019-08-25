@@ -11,7 +11,7 @@ const getSensorData = () => {
 }
 
 const DashboardContainer = () => {
-  const stateSelector = useSelector(state => state)
+  const stateSelector: Object = useSelector(state => state)
 
   return <DashboardView allState={stateSelector} />
 }

@@ -1,4 +1,4 @@
-function devices(state = [], action) {
+function devices(state: Array<Object> = [], action: Object) {
   return state
 }
 

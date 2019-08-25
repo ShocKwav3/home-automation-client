@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -21,7 +21,7 @@ import { mainViewStyles } from '../styles/mainViewStyles'
 import { routes } from '../constants/settings'
 
 
-const drawerOptions = [
+const drawerOptions: Array<Object> = [
   {
     title: 'Dashboard',
     icon: DashboardIcon,
@@ -34,7 +34,11 @@ const drawerOptions = [
   },
 ]
 
-const DrawerItems = ({history}) => { //since we want it to render once no optimizations are needed with lifecycle events
+type drawerItemsProps = {
+  history: Array<Object>,
+}
+
+const DrawerItems = ({history}: drawerItemsProps) => { //since we want it to render once no optimizations are needed with lifecycle events
   return <List>
     {
       drawerOptions.map(drawerItem => {
@@ -51,10 +55,15 @@ const DrawerItems = ({history}) => { //since we want it to render once no optimi
   </List>
 }
 
-export default function MainView({allState, children, history}) {
-  const classes = mainViewStyles()
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+type mainViewProps = {
+  children: React.Node,
+  history: Array<Object>,
+}
+
+export default function MainView({children, history}: mainViewProps) {
+  const classes: Object = mainViewStyles()
+  const theme: Object = useTheme();
+  const [open: boolean, setOpen] = useState(false);
 
   function toggleDrawer() {
     setOpen(!open)

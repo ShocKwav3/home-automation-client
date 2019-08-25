@@ -1,11 +1,11 @@
 import sensorDataActions from '../actions/sensorDataActions'
 
 
-const getSensorData = () => (dispatch) => {
+const getSensorData = () => (dispatch: Function): void => {
   dispatch(sensorDataActions.getAllSensorDataPending());
 }
 
-const sensorDataServices = {
+const sensorDataServices: Object = {
   getSensorData,
 }
 

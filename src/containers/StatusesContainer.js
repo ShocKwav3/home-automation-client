@@ -13,13 +13,17 @@ import {
 import Statuses from '../components/Statuses'
 
 
-const StatusesContainer = ({singleSensorData}) => {
-  const state = useSelector(state => state)
-  const motorStatus = getMotorStatus(state.actuatorActivities, singleSensorData)
-  const moistureValue = _.get(singleSensorData, 'sensor_value')
-  const motorStateValue = _.get(motorStatus, 'actuator_value')
-  const moistureIndicator = getMoistureLevelIndicator(moistureLevelIndicators, moistureValue)
-  const motorIndicator = getActuatorStateIndicator(motorStateIndicators, motorStateValue)
+type statuesProps = {
+  singleSensorData: Object,
+}
+
+const StatusesContainer = ({singleSensorData}: statuesProps) => {
+  const state: Object = useSelector(state => state)
+  const motorStatus: Object | void = getMotorStatus(state.actuatorActivities, singleSensorData)
+  const moistureValue: number | void = _.get(singleSensorData, 'sensor_value')
+  const motorStateValue: number | void = _.get(motorStatus, 'actuator_value')
+  const moistureIndicator: Object = getMoistureLevelIndicator(moistureLevelIndicators, moistureValue)
+  const motorIndicator: Object = getActuatorStateIndicator(motorStateIndicators, motorStateValue)
 
   return <Statuses data={[moistureIndicator, motorIndicator]} />
 }

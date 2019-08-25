@@ -1,8 +1,16 @@
-function sensorData(state = [], action) {
+import type {
+  typeSensorData,
+} from '../types/sensorDataTypes'
+import type {
+  Action,
+} from '../types'
+
+
+function sensorData(state: typeSensorData = [], action: Action): typeSensorData {
   return data
 }
 
-const data = [
+const data: typeSensorData = [
   {
     created_timestamp: '2019-08-12T13:28:40.194Z',
     sensor_value: 520,

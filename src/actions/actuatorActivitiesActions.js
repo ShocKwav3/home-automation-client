@@ -1,4 +1,9 @@
 import { actuatorActivitiesActionTypes } from '../constants/actuatorActivitiesConstants'
+import type {
+  typeActuatorActivitiesSingle,
+  typeActuatorActivities,
+  typeActuatorActivitiesActions,
+} from '../types/actuatorActivitiesTypes'
 
 
 const {
@@ -9,29 +14,29 @@ const {
   ACTUATOR_ACTIVITIES_SINGLE_REALTIME_UPDATE,
 } = actuatorActivitiesActionTypes
 
-const getAllActuatorActivitiesPending = () => ({
+const getAllActuatorActivitiesPending = (): typeActuatorActivitiesActions => ({
   type: GET_ACTUATOR_ACTIVITIES_ALL,
 })
 
-const getAllActuatorActivitiesSuccess = (allActuatorActivities) => ({
+const getAllActuatorActivitiesSuccess = (allActuatorActivities: typeActuatorActivities): typeActuatorActivitiesActions => ({
   type: GET_ACTUATOR_ACTIVITIES_ALL_SUCCESS,
   payload: allActuatorActivities,
 })
 
-const getAllActuatorActivitiesNoNewUpdate = () => ({
+const getAllActuatorActivitiesNoNewUpdate = (): typeActuatorActivitiesActions => ({
   type: GET_ACTUATOR_ACTIVITIES_ALL_NO_NEW_UPDATE,
 })
 
-const getAllActuatorActivitiesFailure = () => ({
+const getAllActuatorActivitiesFailure = (): typeActuatorActivitiesActions => ({
   type: GET_ACTUATOR_ACTIVITIES_ALL_FAILURE,
 })
 
-const actuatorActivitiesRealtimeUpdate = (newData) => ({
+const actuatorActivitiesRealtimeUpdate = (newData: typeActuatorActivitiesSingle): typeActuatorActivitiesActions => ({
   type: ACTUATOR_ACTIVITIES_SINGLE_REALTIME_UPDATE,
   payload: newData,
 })
 
-const actuatorActivitiesActions = {
+const actuatorActivitiesActions: Object = {
   getAllActuatorActivitiesPending,
   getAllActuatorActivitiesSuccess,
   getAllActuatorActivitiesNoNewUpdate,

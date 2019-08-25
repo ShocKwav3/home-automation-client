@@ -1,8 +1,16 @@
-function actuatorActivities(state = [], action) {
+import type {
+  typeActuatorActivities,
+} from '../types/actuatorActivitiesTypes'
+import type {
+  Action,
+} from '../types'
+
+
+function actuatorActivities(state: typeActuatorActivities = [], action: Action): typeActuatorActivities {
   return data
 }
 
-const data = [
+const data: typeActuatorActivities = [
   {
     created_timestamp: '2019-08-12T12:28:36.194Z',
     actuator_value: 0,

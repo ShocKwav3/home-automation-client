@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
@@ -8,8 +8,16 @@ import { Gradient } from 'react-gradient'
 import { cardItemStyles } from '../../styles/cardItemStyles'
 
 
-export default function CardItem({children, title, footer, containerStyle, value=400}) {
-  const classes = cardItemStyles()
+type cardItemProps = {
+  children: React.Node,
+  title: string,
+  footer: string,
+  containerStyle: Object,
+  value: number,
+}
+
+export default function CardItem({children, title, footer, containerStyle, value=400}: cardItemProps) {
+  const classes: Object = cardItemStyles()
 
   return (
     <Card className={clsx({

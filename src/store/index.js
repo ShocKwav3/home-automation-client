@@ -1,12 +1,17 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
+import type {
+  Store,
+  State,
+} from '../types'
+
 import rootReducer from '../reducers'
 import allEnhancers from './enhancers'
 import getMiddlewares from './middlewares'
 
 
-function getStore(preLoadedState) {
+function getStore(preLoadedState: State | void) {
   const middlewares = getMiddlewares()
   const middlewareEnhancers = applyMiddleware(...middlewares)
 
@@ -15,7 +20,7 @@ function getStore(preLoadedState) {
   //const composedEnhancers = compose(...enhancers)
 
 
-  const store = createStore(rootReducer, preLoadedState, composedEnhancers)
+  const store: Store = createStore(rootReducer, preLoadedState, composedEnhancers)
 
   return store
 }

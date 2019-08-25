@@ -3,10 +3,17 @@ import { useSelector } from 'react-redux'
 import Main from '../components/MainView'
 
 
-const MainContainer = (props) => {
-  const stateSelector = useSelector(state => state)
+type mainViewProps = {
+  children: React.Node,
+  history: Array<Object>,
+}
 
-  return <Main allState={stateSelector} {...props} />
+const MainContainer = ({children, history}: mainViewProps) => {
+  const stateSelector: Object = useSelector(state => state)
+
+  return <Main history={history}>
+           {children}
+         </Main>
 }
 
 export default MainContainer

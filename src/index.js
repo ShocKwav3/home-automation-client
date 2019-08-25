@@ -22,6 +22,11 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
   </React.Suspense>
 )
 
+const element = document.getElementById('main')
+if (!element) {
+  throw new Error("couldn't find element with id root")
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -32,5 +37,5 @@ ReactDOM.render(
       </Switch>
     </Router>
   </Provider>,
-  document.getElementById('main')
+  element
 )

@@ -11,8 +11,8 @@ const getSensorData = () => {
 }
 
 const ActivitiesViewContainer = () => {
-  const state = useSelector(state => state)
-  const sensorData = state.sensorData
+  const state: Object = useSelector(state => state)
+  const sensorData: Array<Object> = state.sensorData
 
   return <ActivitiesView sensorData={sensorData} />
 }

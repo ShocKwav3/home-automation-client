@@ -10,12 +10,23 @@ import {
 import StatusesContainer from '../../containers/StatusesContainer'
 
 
-export default function ActivitiesView({sensorData}) {
-  const classes = activitiesViewStyles()
+type activitiesProps = {
+  sensorData: Array<Object>,
+}
 
-  return <Grid container className={classes.container} style={{backgroundColor: 'grey'}} spacing={2}>
+ActivitiesView.defaultProps = {
+  sensorData: [],
+}
+
+export default function ActivitiesView(props: activitiesProps) {
+  const classes: Object = activitiesViewStyles()
+
+  return <Grid container
+               className={classes.container}
+               style={{backgroundColor: 'grey'}}
+               spacing={2}>
     {
-      sensorData.map((value, index) => (
+      props.sensorData.map((value: Object, index: number) => (
         <Grid key={index} item xs={12} sm={12} md={6} lg={2} xl={2}>
           <CardItem containerStyle={classes.cardContainer}
                     title={getTimeString(value.created_timestamp)}
