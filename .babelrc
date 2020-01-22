@@ -1,24 +1,24 @@
 {
   "presets": [
     ["@babel/preset-env", {"modules": false}],
-    "@babel/preset-react",
+    "@babel/preset-react"
   ],
+
   "plugins": [
     "lodash",
     "recharts",
-    //"@babel/plugin-proposal-class-properties",
     ["module-resolver", {
       "root": ["./"],
       "alias": {
         "projectRoot": "./",
-        "src": "./src/",
-      },
+        "src": "./src/"
+      }
     }],
     ["transform-imports", {
       "@material-ui/core": {
         //supports only upto level 2 (@material-ui/core/Tabs/TabIndicator <- level 3 not supported)
-        "transform": "@material-ui/core/${member}",
-      },
-    }],
-  ],
+        "transform": "@material-ui/core/${member}"
+      }
+    }]
+  ]
 }
