@@ -9,6 +9,11 @@
         "allowJs": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "paths": {
+            "projectRoot/*": ["./*"],
+            "src/*": ["./src/*"],
+        },
     },
 
     "include": [
