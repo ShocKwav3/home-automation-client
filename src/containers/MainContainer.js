@@ -6,7 +6,7 @@ import Main from '../components/MainView'
 const MainContainer = (props) => {
   const stateSelector = useSelector(state => state)
 
-  return <Main allState={stateSelector} {...props} />
+  return <Main {...props} />
 }
 
 export default MainContainer
