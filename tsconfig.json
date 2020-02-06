@@ -2,21 +2,33 @@
     "compilerOptions": {
         "outDir": "./dist/",
         "sourceMap": true,
-        "strictNullChecks": true,
         "module": "es6",
         "jsx": "react",
         "target": "es5",
         "allowJs": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
+        "lib": ["es6", "dom"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
         "baseUrl": "./",
         "paths": {
             "projectRoot/*": ["./*"],
             "src/*": ["./src/*"],
         },
+        "typeRoots": [
+            "./types",
+            "./node_modules/@types",
+        ],
     },
 
     "include": [
         "./src/",
-    ]
+    ],
+
+    "exclude": [
+        "node_modules",
+        "types",
+    ],
 }
