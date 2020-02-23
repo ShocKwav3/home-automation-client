@@ -19,11 +19,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: ['babel-loader', 'ts-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        enforce: "pre",
+        loader: "source-map-loader",
       },
       /*{
         test: /\.css$/,
@@ -44,6 +48,8 @@ module.exports = {
   },
 
   resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+
     alias: {
       projectRoot: path.resolve(__dirname),
       src: path.resolve(__dirname, 'src'),
