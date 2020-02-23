@@ -12,8 +12,8 @@ import getActivitiesViewStyles      from 'src/styles/activitiesViewStyles'
 import { IStatusesDataItem }        from 'src/models/interfaces'
 
 
-interface IStatuses {
-    data: Array<IStatusesDataItem>
+interface IStatusesProps {
+    data: IStatusesDataItem[],
 }
 
 interface IactivitiesViewStyles {
@@ -26,7 +26,7 @@ interface IactivitiesViewStyles {
 
 const determinePlacement = (itemIndex: number) => itemIndex%2===0 ? 'left' : 'right'
 
-const Statuses: FunctionComponent<IStatuses> = ({data}) => {
+const Statuses: FunctionComponent<IStatusesProps> = ({data}) => {
     React.useEffect(() => {
         loadCSS(
             'https://use.fontawesome.com/releases/v5.1.0/css/all.css',

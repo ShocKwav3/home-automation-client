@@ -10,12 +10,11 @@ import {
 } 									from 'src/helpers/utils'
 import StatusesContainer 			from 'src/containers/StatusesContainer'
 
-import { IsensorData } 				from 'src/models/interfaces'
-import { Tindex }					from 'src/models/primitiveTypes'		
+import { ISensorData } 				from 'src/models/interfaces'		
 
 
 interface IActivitiesViewProps {
-  	sensorData: Array<IsensorData>,
+  	sensorData: ISensorData[],
 }
 
 interface IactivitiesViewStyles {

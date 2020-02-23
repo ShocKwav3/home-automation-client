@@ -1,4 +1,15 @@
-function sensorData(state = [], action) {
+import {
+    TsensorDataStateType,
+    TsensorDataActionTypes,
+} from 'src/models/reducers/sensorDataReducerTypes'
+
+
+const initialState: TsensorDataStateType = []
+
+function sensorData(
+    state = initialState,
+    action: TsensorDataActionTypes,
+): TsensorDataStateType {
   return data
 }
 

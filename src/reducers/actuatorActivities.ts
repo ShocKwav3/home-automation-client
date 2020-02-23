@@ -1,4 +1,15 @@
-function actuatorActivities(state = [], action) {
+import {
+    TactuatorActivitiesStateType,
+    TactuatorActivitiesActionTypes,
+} from 'src/models/reducers/actuatorActivitiesReducerTypes'
+
+
+const initialState: TactuatorActivitiesStateType = []
+
+function actuatorActivities(
+    state = initialState,
+    action: TactuatorActivitiesActionTypes,
+): TactuatorActivitiesStateType {
   return data
 }
 

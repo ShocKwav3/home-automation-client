@@ -1,4 +1,9 @@
-export const getDateString = (date) => {
+import {
+    TdateTime,
+} from 'src/models/primitiveTypes'
+
+
+export const getDateString = (date: TdateTime): TdateTime => {
   const options = {
     weekday: 'short',
     year: 'numeric',
@@ -9,7 +14,7 @@ export const getDateString = (date) => {
   return new Date(date).toLocaleDateString('en-US', options)
 }
 
-export const getTimeString = (date) => {
+export const getTimeString = (date: TdateTime): TdateTime => {
   const options = {
     hour: 'numeric',
     minute: 'numeric',

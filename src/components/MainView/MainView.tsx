@@ -1,7 +1,11 @@
-import React, { FunctionComponent, 
-    useCallback,} from 'react'
-import clsx                         from 'clsx'
-import { useTheme }                 from '@material-ui/core/styles'
+import React, {
+    FunctionComponent, 
+    useCallback,
+}                  from 'react'
+import clsx        from 'clsx'
+import {
+    useTheme
+}                  from '@material-ui/core/styles'
 import {
     AppBar,
     Drawer,
@@ -10,17 +14,23 @@ import {
     Typography,
     Divider,
     IconButton,
-}                                   from '@material-ui/core'
+}                  from '@material-ui/core'
 import {
     Menu         as MenuIcon,
     ChevronLeft  as ChevronLeftIcon,
     ChevronRight as ChevronRightIcon,
-}                                   from '@material-ui/icons'
-import { RouteComponentProps }      from 'react-router-dom'
-import { History } from 'history'
+}                  from '@material-ui/icons'
+import {
+    RouteComponentProps
+}                  from 'react-router-dom'
+import {
+    History
+}                  from 'history'
 
-import { mainViewStyles }           from 'src/styles/mainViewStyles'
-import DrawerItems                  from 'src/components/MainView/DrawerItems'
+import {
+    mainViewStyles
+}                  from 'src/styles/mainViewStyles'
+import DrawerItems from 'src/components/MainView/DrawerItems'
 
 
 interface IMainView extends RouteComponentProps {}

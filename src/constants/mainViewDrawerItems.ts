@@ -1,8 +1,10 @@
 import {
     ViewList as ViewListIcon,
     Dashboard as DashboardIcon,
-}                 from '@material-ui/icons'
-import { routes } from 'src/constants/settings'
+} from '@material-ui/icons'
+import {
+    routes
+} from 'src/constants/settings'
 
 
 export const drawerOptions = [
